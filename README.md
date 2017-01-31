@@ -1,6 +1,6 @@
 # STIMED.js
 
-![Example 1](https://github.com/Creatide/STIMED/blob/gh-pages/img/STIMEDjs_Animation_Optimized.gif)
+![Example 1](https://github.com/Creatide/STIMED/blob/gh-pages/img/STIMEDjs_Animation_890x400_Optimized.gif)
 
 ## About
 

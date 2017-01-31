@@ -4,7 +4,7 @@
 
 [STIMED.js](http://stimed.creatide.com) is a jQuery plugin for controlling CSS styles over time. There are almost endless possibilities for using timed CSS properties. You could change webpage colors to make them more calm at night and more contrast during daytime, or hide a specific element in a certain time, or just move an element in sync with time...
 
-I've created this plugin based on an idea about time synced CSS styles and because I didn't find a library for this kind of task. Keep in mind that this plugin is still just a proof of concept and for testing purposes only. Maybe you could find it useful or contribute and make it better!
+I've created this plugin based on an idea about time synced CSS styles and because I didn't find a library for this kind of task. Keep in mind that this plugin is still just a proof of concept and for testing purposes only. Maybe you could find it useful or [contribute and make it better!](https://github.com/Creatide/STIMED#contribute)
 
 ## Getting Started and Documentation
 

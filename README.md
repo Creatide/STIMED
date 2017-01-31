@@ -24,7 +24,7 @@ If you think you can improve this plugin with your superb skills you are welcome
 
 ### Author
 
-**STIMED.js** made by ([Sakari Niittymaa](http://sakari.niittymaa.com)) *[Creatide](http://creatide.com)*
+**STIMED.js** made by [Sakari Niittymaa](http://sakari.niittymaa.com) *([Creatide](http://creatide.com))*
 
 > Creatide is not a company nor a big factory. It's a single Designer who also loves coding and improving workflow. I create tools for my personal usage in order to relieve my design process, so every tool is used by myself. Some of those tools end up being released to the public under this name and domain.
 

@@ -1,4 +1,4 @@
-# [STIMED.js Web Page](http://www.stimed.creatide.com)
+# [STIMED.js Web Page](http://stimed.creatide.com)
 
 ## About STIMED.js
 

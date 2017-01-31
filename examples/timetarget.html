@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>STIMED.js | Example: Time Target</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
+    <link href="../css/style.css" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="../js/stimed.min.js"></script>
+    <script src="custom.js"></script>
+
+  </head>
+  <body class="examples">
+
+    <!-- Header -->
+    <div class="ui main menu">
+      <a class="item" href="../index.html">STIMED.js</a>
+      <a href="#" class="item right"><button class="ui primary button source-button">Show Source</button></a>
+    </div>
+
+    <!-- Content -->
+    <main class="content">      
+      <div class="ui center aligned grid container">
+        <div class="sixteen wide column">
+          <span class="time"></span>
+        </div>    
+      </div>
+    </main>
+
+    <!-- Source Code -->
+    <div class="ui small modal">
+      <div class="header text blue">Source Code</div>
+      <div class="content">
+
+<h3 class="ui header">Comments:</h3>
+<p>Here we create base <strong>stimed</strong> object and set <strong>timeTarget</strong> parameter to target out html <strong>.time</strong> class. It'll automatically update time value to html text element.</p>
+
+<h3 class="ui header">Initialize Plugin:</h3>
+<pre><code class="javascript">var stimed = new $.stimed({
+    timeTarget: '.time'
+  });
+});</code></pre>
+
+<h3 class="ui header">Example:</h3>
+<pre><code class="javascript">// Time target and other global settings could be set separately later if main object exist
+stimed.settings.timeTarget = '.time';
+stimed.settings.speedUp = 1000;
+</code></pre>
+        
+      </div> <!-- END: Modal Content -->
+      <div class="actions right aligned">
+            <div class="ui positive right labeled icon button">Close<i class="close icon"></i></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="ui inverted vertical footer basic segment p-side-1em unselectable">
+        <div class="ui inverted middle aligned two column grid">
+            <div class="ui inverted left aligned eight wide column">
+                <p class="text darkgrey">Made with <i class="fitted red heart icon text-icon"></i> and <i class="fitted brown coffee icon text-icon"></i></p>
+            </div>
+            <div class="inverted right aligned eight wide column">
+                <div class="ui horizontal inverted small divided link list">
+                    <a class="item" href="https://twitter.com/sakariniittymaa" target="_blank">Author</a>
+                    <a href="../index.html" class="item disclaimer-button">STIMED.js</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- STIMED.js -->
+    <script type="text/javascript">
+      var stimed = new $.stimed({
+        timeTarget: '.time'
+      });
+    </script>
+  
+  </body>
+</html>

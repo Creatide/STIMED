@@ -1,0 +1,419 @@
+@import "variables.less";
+@import "mixins.less";
+
+html {
+    position: relative;
+    min-height: 100%;
+    -webkit-text-size-adjust: none; // Disable text sizing
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    font-size: 1em;
+    margin: 0;
+    padding: 0;
+    
+    // Full background properties
+    // https://css-tricks.com/perfect-full-page-background-image/
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+    // Sticky footer
+    // https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main.content {
+    // Sticky footer
+    flex: 1;
+}
+
+*.unselectable {
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+//
+// Planet System
+// ==========================================================================
+
+.planets {
+    // background: red;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: -20px;
+    bottom: 50px;
+    width: 400px;
+    opacity: 0.3;
+    z-index: 1;
+    .sun {
+        position: absolute;
+        margin: 0 auto;
+        left: 0;
+        right: 0;
+        bottom: 10px;
+        width: 140px;
+        height: 140px;        
+        border-radius: 100%;        
+        z-index: 2;        
+        background: @color-sun;
+        -moz-box-shadow: 0 0 100px @color-sun;
+        -webkit-box-shadow: 0 0 100px @color-sun;
+        box-shadow: 0px 0px 100px @color-sun;
+    }
+    .moon {
+        position: relative;
+        margin: 0 auto;
+        top: 10px;
+        width: 80px;
+        height: 80px;
+        border-radius: 100%;
+        z-index: 2;
+        background: @color-moon;
+        -moz-box-shadow: 0 0 100px @color-moon;
+        -webkit-box-shadow: 0 0 100px @color-moon;
+        box-shadow: 0px 0px 100px @color-moon;
+    }
+}
+
+//
+// Content
+// ==========================================================================
+
+.time {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    font-size: 10vw;
+    font-weight: 100;
+    text-align: center;
+}
+
+h5.text-normal {
+    font-size: 1.3em !important;
+    text-align: left !important;
+}
+p.text-normal {
+    font-size: 1.1em !important;
+    text-align: left !important;
+}
+.ui.vertical.stripe {
+    padding: 8em 0em;
+    z-index: 4;
+}
+.ui.vertical.stripe h3 {
+    text-align: center;
+    font-size: 2em;
+}
+.ui.vertical.stripe h5 {
+    text-align: center;
+    font-size: 1.4em;
+}
+.ui.vertical.stripe .button + h3,
+.ui.vertical.stripe p + h3 {
+    margin-top: 3em;
+}
+.ui.vertical.stripe .floated.image {
+    clear: both;
+}
+.ui.vertical.stripe p {
+    text-align: center;
+    font-size: 1.33em;
+    line-height: 1.6em;
+}
+.ui.vertical.stripe .horizontal.divider {
+    margin: 3em 0em;
+}
+
+.about-bg {
+    // border: none !important;
+}
+
+//
+// Examples Content
+// ==========================================================================
+
+.examples .ui.main.menu {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    z-index: 9999;
+}
+
+.examples .time {
+    top: 45%;
+    -webkit-transform: translateY(-45%);
+    -ms-transform: translateY(-45%);
+    transform: translateY(-45%);
+    text-align: center;
+    font-size: 10vw;
+    font-weight: 100;
+    color: dark-grey;
+    background-color:rgba(255, 255, 255, 0.5);
+    border-radius: 6px;
+    padding: 10px 40px 15px 30px;
+}
+
+.examples main {
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+}
+
+//
+// Semantic UI Custom
+// ==========================================================================
+
+.grid {
+    height: 100% !important;
+    width: 100% !important;
+}
+
+.masthead.segment {
+    min-height: 600px;
+    padding: 1em 0;
+    z-index: 0;
+}
+
+.masthead h1.ui.header {
+    margin-top: 0.9em;
+    margin-bottom: 0;
+    font-size: 7em;
+    font-weight: 700;
+}
+
+.masthead h2.ui.header {
+    font-size: 1.5em;
+    font-weight: 400;
+    margin-top: 0;
+}
+
+.masthead .time.ui.header {
+    font-size: 8em;
+    font-weight: 100;
+}
+
+@media only screen and (max-width: 700px) {
+    .masthead.segment {
+        min-height: 350px;
+    }
+    .masthead h1.ui.header {
+        font-size: 3.6em;
+        margin-top: 0.9em;
+    }
+    .masthead h2.ui.header {
+        margin-top: 0.5em;
+        font-size: 0.8em;
+    }
+    .masthead .time.ui.header {
+        font-size: 4.2em;
+    }
+}
+
+.cookie.nag {
+    position: absolute;
+    background-color: black;
+    opacity: 0.8;
+    border-radius: 0;
+    z-index: 9999;
+    .icon {
+        margin: -.6em 0 0 0 !important;
+    }
+    &:hover {
+        background-color: black;
+        opacity: 0.9 !important;
+    }
+    a:link, a:visited {
+        color: white;
+        text-decoration: underline;
+    }
+    a:hover, a:active {
+    }
+}
+
+.text-icon {
+    padding: 0 5px;
+}
+
+.modal, .modals {
+    z-index: 9999 !important;
+}
+
+//
+// Extra Classes
+// ==========================================================================
+
+pre, code { white-space: pre-wrap; }
+
+.centering {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+}
+
+.center-x {
+    margin: 0 auto;
+}
+
+.vertical-center {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+// Shadow to top and bottom
+.shadow-top-bot {
+    box-shadow: 0px 2px 10px rgba(1, 1, 1, 0.2), 0px -2px 6px rgba(1, 1, 1, 0.2) !important;
+    z-index: 999;
+}
+
+// Shadow to Bottom only
+.shadow-bot {
+    box-shadow: 0 0px 6px 0px rgba(1, 1, 1, 0.6) !important;
+    z-index: 999;
+}
+
+//
+// Typography
+// ==========================================================================
+
+// Default Colors
+.text.white { color: white !important; }
+.text.grey { color: #CCCCCC !important; }
+.text.black { color: #1B1C1D !important; }
+.text.yellow { color: #F2C61F !important; }
+.text.teal { color: #00B5AD !important; }
+.text.red { color: #D95C5C !important; }
+.text.purple { color: #564F8A !important; }
+.text.pink { color: #D9499A !important; }
+.text.orange { color: #E07B53 !important; }
+.text.green { color: #5BBD72 !important; }
+.text.blue { color: #3B83C0 !important; }
+
+// Text Effects
+.text-center { text-align: center; }
+.text-shadow { text-shadow: 2px 2px 8px black; }
+.text-underline { text-decoration: underline; }
+
+//
+// Helpers
+// ==========================================================================
+
+.m-top5 { margin-top: 5px !important; }
+.m-top10 { margin-top: 10px !important; }
+.m-top15 { margin-top: 15px !important; }
+.m-top20 { margin-top: 20px !important; }
+.m-top30 { margin-top: 30px !important; }
+.m-top40 { margin-top: 40px !important; }
+.m-top50 { margin-top: 50px !important; }
+.m-top60 { margin-top: 60px !important; }
+.m-top70 { margin-top: 70px !important; }
+.m-top80 { margin-top: 80px !important; }
+.m-top90 { margin-top: 90px !important; }
+.m-top100 { margin-top: 100px !important; }
+
+.m-bottom5 { margin-bottom: 5px !important; }
+.m-bottom10 { margin-bottom: 10px !important; }
+.m-bottom15 { margin-bottom: 15px !important; }
+.m-bottom20 { margin-bottom: 20px !important; }
+.m-bottom30 { margin-bottom: 30px !important; }
+.m-bottom40 { margin-bottom: 40px !important; }
+.m-bottom50 { margin-bottom: 50px !important; }
+.m-bottom60 { margin-bottom: 60px !important; }
+.m-bottom70 { margin-bottom: 70px !important; }
+.m-bottom80 { margin-bottom: 80px !important; }
+.m-bottom90 { margin-bottom: 90px !important; }
+.m-bottom100 { margin-bottom: 100px !important; }
+
+.m-top2-em { margin-top: 2em !important; }
+.m-top3-em { margin-top: 3em !important; }
+.m-top4-em { margin-top: 4em !important; }
+.m-top5-em { margin-top: 5em !important; }
+
+.m-bottom2-em { margin-bottom: 2em !important; }
+.m-bottom3-em { margin-bottom: 3em !important; }
+.m-bottom4-em { margin-bottom: 4em !important; }
+.m-bottom5-em { margin-bottom: 5em !important; }
+
+.p-5 { padding-top: 5px !important; padding-bottom: 5px !important; }
+.p-10 { padding-top: 10px !important; padding-bottom: 10px !important; }
+.p-15 { padding-top: 15px !important; padding-bottom: 15px !important; }
+.p-20 { padding-top: 20px !important; padding-bottom: 20px !important; }
+.p-30 { padding-top: 30px !important; padding-bottom: 30px !important; }
+.p-40 { padding-top: 40px !important; padding-bottom: 40px !important; }
+.p-50 { padding-top: 50px !important; padding-bottom: 50px !important; }
+.p-60 { padding-top: 60px !important; padding-bottom: 60px !important; }
+.p-70 { padding-top: 70px !important; padding-bottom: 70px !important; }
+.p-80 { padding-top: 80px !important; padding-bottom: 80px !important; }
+.p-90 { padding-top: 90px !important; padding-bottom: 90px !important; }
+.p-100 { padding-top: 100px !important; padding-bottom: 100px !important; }
+
+.p-top5 { padding-top: 5px !important; }
+.p-top10 { padding-top: 10px !important; }
+.p-top15 { padding-top: 15px !important; }
+.p-top20 { padding-top: 20px !important; }
+.p-top30 { padding-top: 30px !important; }
+.p-top40 { padding-top: 40px !important; }
+.p-top50 { padding-top: 50px !important; }
+.p-top60 { padding-top: 60px !important; }
+.p-top70 { padding-top: 70px !important; }
+.p-top80 { padding-top: 80px !important; }
+.p-top90 { padding-top: 90px !important; }
+.p-top100 { padding-top: 100px !important; }
+
+.p-bottom5 { padding-bottom: 5px !important; }
+.p-bottom10 { padding-bottom: 10px !important; }
+.p-bottom15 { padding-bottom: 15px !important; }
+.p-bottom20 { padding-bottom: 20px !important; }
+.p-bottom30 { padding-bottom: 30px !important; }
+.p-bottom40 { padding-bottom: 40px !important; }
+.p-bottom50 { padding-bottom: 50px !important; }
+.p-bottom60 { padding-bottom: 60px !important; }
+.p-bottom70 { padding-bottom: 70px !important; }
+.p-bottom80 { padding-bottom: 80px !important; }
+.p-bottom90 { padding-bottom: 90px !important; }
+.p-bottom100 { padding-bottom: 100px !important; }
+
+.p-top2-em { padding-top: 2em !important; }
+.p-top3-em { padding-top: 3em !important; }
+.p-top4-em { padding-top: 4em !important; }
+.p-top5-em { padding-top: 5em !important; }
+
+.p-bottom2-em { padding-bottom: 2em !important; }
+.p-bottom3-em { padding-bottom: 3em !important; }
+.p-bottom4-em { padding-bottom: 4em !important; }
+.p-bottom5-em { padding-bottom: 5em !important; }
+
+.p-side-1em {
+    padding-left: 1em !important;
+    padding-right: 1em !important;
+}
+.p-side-2em {
+    padding-left: 2em !important;
+    padding-right: 2em !important;
+}
+
+.remove-bg {
+    background: none !important;
+}

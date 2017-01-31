@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="description" content="STIMED.js is jQuery plugin for controlling CSS styles over time.">
+    <meta name="keywords" content="stimed, css, JavaScript, styles, time, timecode, js, library">
+    <title>STIMED.js | jQuery plugin for controlling CSS styles over time</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="js/stimed.min.js"></script>
+    <script src="js/custom.js"></script>
+    
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <main class="content">
+
+        <!-- Planet System -->
+        <div class="planets unselectable">
+            <div class="moon"></div>
+            <div class="sun"></div>
+        </div>
+
+        <!-- Header -->
+        <div class="ui vertical masthead center aligned segment unselectable">
+            <header class="container">
+                <div class="ui text container text-shadow">
+                    <h1 class="ui inverted header">STIMED.js</h1>
+                    <h2 class="ui inverted header">jQuery plugin for controlling CSS styles over time.</h2>
+                    <span class="ui inverted header time">00:00:00</span>
+                </div>
+                <div class="ui hidden divider m-top30 m-bottom30"></div>
+                <div class="ui text container center aligned centered grid">
+                </div>
+            </header>
+        </div>
+
+        <!-- Getting Started -->
+        <div class="ui vertical stripe segment">
+            <div class="ui text container">
+                <h3 class="ui header p-bottom40">Getting Started</h3>
+                <p>It's quite simple to use. Just follow these steps to make it work!</p>
+                
+                <h4 class="ui blue horizontal header divider">1. Download the Plugin</h4>
+                <div class="ui segments">
+                <div class="ui center aligned segment">
+                    <a href="https://github.com/creatide/stimed/archive/master.zip" class="blue fluid massive ui button"><i class="download icon"></i>Download</a>
+                </div>
+                <div class="ui secondary center aligned segment">
+                    <a class="github-button" href="https://github.com/creatide/stimed" data-icon="octicon-star" data-style="mega" data-count-href="/creatide/stimed/stargazers" data-count-api="/repos/creatide/stimed#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star creatide/stimed on GitHub">Star</a>
+
+                    <a class="github-button" href="https://github.com/creatide/stimed/fork" data-icon="octicon-repo-forked" data-style="mega" data-count-href="/creatide/stimed/network" data-count-api="/repos/creatide/stimed#forks_count" data-count-aria-label="# forks on GitHub" aria-label="Fork creatide/stimed on GitHub">Fork</a>
+                </div>
+                </div>
+
+                <h4 class="ui blue horizontal header divider">2. Include the Script to Header</h4>
+                <pre><code class="html">&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script src="stimed.min.js"&gt;&lt;/script&gt;</code></pre>
+                
+                <h4 class="ui blue horizontal header divider">3. Initialize &#38; Create Styles</h4>
+                <pre><code class="javascript">var stimed = new $.stimed();
+
+stimed.style.create([
+  {target:'body', time:'00:00', property:'background-color', value:'#fff'},
+  {target:'body', time:'18:00', property:'background-color', value:'#000'},
+  {target:'body', time:'24:00', property:'background-color', value:'#fff'}
+]);</code></pre>
+            </div>
+            
+        </div>
+
+        <!-- About -->
+        <div class="ui vertical stripe segment about-bg">
+            <div class="ui text container">
+                <h3 class="ui header p-bottom40 about-text">About</h3>
+                <p class="about-text p-bottom20"><strong>STIMED.js</strong> is a jQuery plugin for controlling CSS styles over time. There are almost endless possibilities for using timed CSS properties. You could change webpage colors to make them more calm at night and more contrast during daytime, or hide a specific element in a certain time, or just move an element in sync with time...</p>
+                <p class="about-text p-bottom40"><strong><a href="https://twitter.com/sakariniittymaa" target="_blank" class="text yellow">I've</a></strong> created this plugin based on an idea about time synced CSS styles and because I didn't find a library for this kind of task. Keep in mind that this plugin is still just a proof of concept and for testing purposes only. Maybe you could find it useful or <strong><a href="#contribute" class="text yellow">contribute</a></strong> and make it better!</p>
+            </div>
+        </div>
+
+        <!-- Examples -->
+        <div class="ui vertical stripe segment">
+            <div class="ui text container">
+                <h3 class="ui header p-bottom40">Examples</h3>
+
+                <h4 class="ui red horizontal header divider">Custom</h4>
+                <div class="ui red three stackable link cards">
+
+                    <a href="./examples/timetarget.html" class="card" target="_blank">
+                        <div class="content">
+                            <div class="header">Time Target</div>
+                            <div class="meta">Basics</div>
+                            <div class="description">Basic time target usage example.</div>
+                        </div>
+                    </a>
+                    
+                    <a href="./examples/changecolors.html" class="card" target="_blank">
+                        <div class="content">
+                            <div class="header">Change Colors</div>
+                            <div class="meta">Basics</div>
+                            <div class="description">How to change colors with styles.</div>
+                        </div>
+                    </a>
+
+                    <a href="./examples/gradientbackground.html" class="card" target="_blank">
+                        <div class="content">
+                            <div class="header">Gradient Background</div>
+                            <div class="meta">Basics</div>
+                            <div class="description">How to create gradient background style.</div>
+                        </div>
+                    </a>
+
+                </div>                    
+
+                <h4 class="ui blue horizontal header divider">Presets</h4>
+                <div class="ui blue three stackable link cards">
+
+                    <a href="./examples/rotate.html" class="card" target="_blank">
+                        <div class="content">
+                            <div class="header">Rotate</div>
+                            <div class="meta">Preset</div>
+                            <div class="description">Rotates selected element.</div>
+                        </div>
+                    </a>
+
+                    <a href="./examples/randomcolors.html" class="card" target="_blank">
+                        <div class="content">
+                            <div class="header">Random Colors</div>
+                            <div class="meta">Preset</div>
+                            <div class="description">Generate random color styles.</div>
+                        </div>
+                    </a>
+
+                    <a href="./examples/randomvalues.html" class="card" target="_blank">
+                        <div class="content">
+                            <div class="header">Random Values</div>
+                            <div class="meta">Preset</div>
+                            <div class="description">Random values using custom range.</div>
+                        </div>
+                    </a>
+
+                    <a href="./examples/unsplash.html" class="card" target="_blank">
+                        <div class="content">
+                            <div class="header">Unsplash Image</div>
+                            <div class="meta">Preset</div>
+                            <div class="description">Get randomly selected Unsplash images.</div>
+                        </div>
+                    </a>
+
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Settings -->
+        <div class="ui vertical stripe segment">
+            <div class="ui text container">
+
+                <h3 class="ui header p-bottom40">Settings</h3>
+                <p>There are a couple options for using STIMED.js. You can declare options while creating a new object or later on by changing the object property value.</p>
+
+                <h4 class="ui horizontal header divider p-top40">Config Along With New Object</h4>
+                <pre><code class="javascript">var stimed = new $.stimed({
+  timeTarget: '.textElement',
+  fps: 30,
+  speedUp: 500,
+  precise: true,
+  timeRunning: true,
+  debugging: false
+});</code></pre>
+
+                <h4 class="ui horizontal header divider">Change Options Later</h4>
+                <pre><code class="javascript">var stimed = new $.stimed();
+...
+stimed.settings.debugging = true;
+stimed.settings.fps = 10;
+</code></pre>
+
+                <h4 class="ui horizontal header divider">Available Options</h4>
+
+                <table class="ui green padded table">
+                    <tbody>
+                        <thead>
+                            <tr>
+                                <th class="single line">Setting</th>
+                                <th>Value</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tr>
+                            <td><h4>timeTarget</h4></td>
+                            <td><pre>id/class</pre></td>
+                            <td>Set target id or class of HTML text element where you want to show time value.</td>
+                        </tr>
+                        <tr>
+                            <td><h4>timeRunning</h4></td>
+                            <td><pre>true/false</pre></td>
+                            <td>Can be used to start or stop time running.</td>
+                        </tr>
+                        <tr>
+                            <td><h4>precise</h4></td>
+                            <td><pre>true/false</pre></td>
+                            <td>Set update frequency in milliseconds.</td>
+                        </tr>
+                        <tr>
+                            <td><h4>debugging</h4></td>
+                            <td><pre>true/false</pre></td>
+                            <td>Show or hide console log debugging messages.</td>
+                        </tr>
+                        <tr>
+                            <td><h4>fps</h4></td>
+                            <td><pre>number</pre></td>
+                            <td>How many frames per second we update the values. This also increases smoothness if using precise mode that updates values in milliseconds.</td>
+                        </tr>
+                        <tr>
+                            <td><h4>speedup</h4></td>
+                            <td><pre>number</pre></td>
+                            <td>Set speedup value to speedup time value. This was created for debugging in order to see how everything works when normal time is too slow to wait.</td>
+                        </tr>                        
+                    </tbody>
+                </table>
+
+                
+
+            </div>
+        </div>
+
+        <!-- Objects -->
+        <div class="ui vertical stripe segment">
+            <div class="ui text container">
+
+                <h3 class="ui header p-bottom40">Objects</h3>
+                <p>After the stimed main object is created there are two main object methods <strong>style</strong> and <strong>time</strong> available. More important is the style object that will be used for creating new styles. Time object will be run by default, so it's optional to use.</p>
+                
+                <!-- Style -->
+                <h5 class="ui blue header p-top50 p-bottom10">Style</h5>
+                <p class="p-bottom20">Style is mainly for creating new styles and using presets. It also contains some debugging and manual update calls if time is not running.</p>
+
+                <pre><code class="javascript">var stimed = new $.stimed();
+...
+stimed.style.create({
+  target: '.className',
+  time: '10:00',
+  property: 'color',
+  value: '#fff'
+});
+
+stimed.style.preset({
+  preset: 'rotate',
+  target: '.sun'
+});
+
+stimed.style.update();
+stimed.style.logStyles();
+</code></pre>
+
+                <h4 class="ui blue horizontal header divider p-top20">Style Methods</h4>
+
+                <table class="ui blue padded table">
+                    <tbody>
+                        <thead>
+                            <tr>
+                                <th>Method</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tr>
+                            <td class="single line"><h4>create({...})</h4></td>
+                            <td>Create new style objects. Required parameters for every style object are <strong>target, time, property</strong> and <strong>value</strong>. Styles do not work without these values and you'll see errors in the console if something goes wrong. Separate multiple styles into individual objects like: <pre>{...}, {...}</pre> or inside of an array <pre>[{...}, {...}]</pre></td>
+                        </tr>
+                        <tr>
+                            <td><h4>update()</h4></td>
+                            <td>Update style values based on the current time even when time is not running. This can be used for manually calling an update for styles if you want to use your own timers or want to update styles only once.</td>
+                        </tr>
+                        <tr>
+                            <td><h4>logStyles()</h4></td>
+                            <td>Shows all styles in the console if debugging is enabled in plugin settings.</td>
+                        </tr>
+                        <tr>
+                            <td class="single line"><h4>preset({...})</h4></td>
+                            <td>There are a couple of presets bundled to plugin.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Time -->
+                <h5 class="ui red header p-top50 p-bottom10">Time</h5>
+                <p class="p-bottom20">Time methods are meant for controlling time and getting some time values.</p>
+
+                <pre><code class="javascript">var stimed = new $.stimed();
+...
+stimed.time.stop();
+stimed.time.start();
+stimed.time.get('seconds');
+</code></pre>
+
+                <h4 class="ui red horizontal header divider p-top20">Time Methods</h4>
+
+                <table class="ui red padded table">
+                    <tbody>
+                        <thead>
+                            <tr>
+                                <th class="single line">Method</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tr>
+                            <td><h4>start()</h4></td>
+                            <td>Start to run time. This will change setting timeRunning to true state.</td>
+                        </tr>
+                        <tr>
+                            <td><h4>stop()</h4></td>
+                            <td>Stop time running. This will change setting timeRunning to false state.</td>
+                        </tr>
+                        <tr>
+                            <td><h4>get('time')</h4></td>
+                            <td>Returns time value in HH:MM:SS string format.</td>
+                        </tr>
+                        <tr>
+                            <td class="single line"><h4>get('seconds')</h4></td>
+                            <td>Returns current time of the day in seconds. There are 86400 seconds in one day and this is the value of the current second of the day.</td>
+                        </tr>
+                        <tr>
+                            <td class="single line"><h4>get('milliseconds')</h4></td>
+                            <td>Same as for seconds but this returns current time of the day in milliseconds.</td>
+                        </tr>
+                        <tr>
+                            <td><h4>get('position', decimal)</h4></td>
+                            <td>Returns the current position of time of day between 0-1. So time 12:00:00 will return to 0.5 value. Second "decimal" parameter is optional. By default position value returns with two decimals 0.94 but with this it can be increased to more precise like 0.0943.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Preset -->
+                <h5 class="ui blue header p-top50 p-bottom10">Presets</h5>
+                <p class="p-bottom20">Preset is part of the style object. There are a couple of presets by default. All presets need <strong>target</strong> HTML element and some of the presets have optional parameters.</p>
+
+                <h4 class="ui blue horizontal header divider p-top20">Available Presets</h4>
+
+                <!-- Preset: Rotate -->
+                <h5 class="text-normal p-top20">Rotate</h5>
+                <p class="text-normal p-bottom20">Rotates 360 degrees in one day by default. This is only a shortcut for CSS rotation even though it's quite easy to setup manually without preset.</p>
+                
+                <table class="ui blue padded table">
+                    <tbody>
+                        <thead>
+                            <tr>
+                                <th>Parameter</th>
+                                <th>Default</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tr>
+                            <td><h4>target</h4></td>
+                            <td>-</td>
+                            <td>html element (required).</td>
+                        </tr>
+                        <tr>
+                            <td><h4>from</h4></td>
+                            <td>0</td>
+                            <td>Starting degree value for time 00:00.</td>
+                        </tr>
+                        <tr>
+                            <td><h4>to</h4></td>
+                            <td>360</td>
+                            <td>End degree value for time 24:00.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <pre><code class="javascript">stimed.style.preset({
+  preset: 'rotate',
+  target: '.sun',
+  from: 90,
+  to: 180
+});
+</code></pre>
+
+                <!-- Preset: Random Value -->
+                <table class="ui blue padded table">
+                    <h5 class="text-normal p-top20">Random Values</h5>
+                    <p class="text-normal p-bottom20">Random values using custom range. Default range is 40-100 and default unit is set to px. This was created for testing font-size but it also can be used on other single value CSS properties.</p>
+
+                    <tbody>
+                        <thead>
+                            <tr>
+                                <th>Parameter</th>
+                                <th>Default</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tr>
+                            <td><h4>target</h4></td>
+                            <td>-</td>
+                            <td>html element (required)..</td>
+                        </tr>
+                        <tr>
+                            <td><h4>property</h4></td>
+                            <td>font-size</td>
+                            <td>CSS target property.</td>
+                        </tr>
+                        <tr>
+                            <td><h4>delay</h4></td>
+                            <td>1000</td>
+                            <td>Delay value in seconds between numbers. Too small of a delay values can decrease perforamnce.</td>
+                        </tr>
+                        <tr>
+                            <td><h4>min</h4></td>
+                            <td>40</td>
+                            <td>Minimum value for range of random numbers.</td>
+                        </tr>
+                        <tr>
+                            <td><h4>max</h4></td>
+                            <td>100</td>
+                            <td>Maximum value for range of random numbers.</td>
+                        </tr>
+                        <tr>
+                            <td><h4>unit</h4></td>
+                            <td>px</td>
+                            <td>What kind of unit for suffix will be used in CSS values e.g. 10px or 1em.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <pre><code class="javascript">stimed.style.preset({
+  preset: 'random values',
+  target: '.myText',
+  property: 'font-size',
+  delay: 5000,
+  min: 0,
+  max: 10
+});
+</code></pre>
+
+                <!-- Preset: Random Colors -->
+                <h5 class="text-normal p-top20">Random Colors</h5>
+                <p class="text-normal p-bottom20">Random colors for targeting CSS property. Colors can be randomized using brightness of the color value.</p>
+                
+                <table class="ui blue padded table">
+                    <tbody>
+                        <thead>
+                            <tr>
+                                <th>Parameter</th>
+                                <th>Default</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tr>
+                            <td><h4>target</h4></td>
+                            <td>-</td>
+                            <td>html element (required).</td>
+                        </tr>
+                        <tr>
+                            <td><h4>property</h4></td>
+                            <td>color</td>
+                            <td>CSS target property.</td>
+                        </tr>
+                        <tr>
+                            <td><h4>delay</h4></td>
+                            <td>1000</td>
+                            <td>Delay value in seconds between colors. Small delay values that are too small can decrease performance.</td>
+                        </tr>
+                        <tr>
+                            <td><h4>brightness</h4></td>
+                            <td>0</td>
+                            <td>Adjust brightness value of the random colors between 0-255.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <pre><code class="javascript">stimed.style.preset({
+  preset: 'rotate',
+  target: '.sun',
+  property: '.myText',
+  delay: 500,
+  brightness: 100
+});
+</code></pre>
+
+                <!-- Preset: Random Unsplash Image -->
+                <h5 class="text-normal p-top20">Random Unsplash Image</h5>
+                <p class="text-normal p-bottom20">Get randomly selected Unsplash images using great <a href="https://unsplash.it/" target="_blank">Unspash It</a> service.</p>
+                
+                <table class="ui blue padded table">
+                    <tbody>
+                        <thead>
+                            <tr>
+                                <th>Parameter</th>
+                                <th>Default</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tr>
+                            <td><h4>target</h4></td>
+                            <td>-</td>
+                            <td>html element (required).</td>
+                        </tr>
+                        <tr>
+                            <td><h4>property</h4></td>
+                            <td>background-image</td>
+                            <td>CSS target property.</td>
+                        </tr>
+                        <tr>
+                            <td><h4>delay</h4></td>
+                            <td>1000</td>
+                            <td>Delay value in seconds between images. Small delay values that are too small can decrease performance.</td>
+                        </tr>
+                        <tr>
+                            <td><h4>preload</h4></td>
+                            <td>true</td>
+                            <td>Try to preload images to avoid flickering.</td>
+                        </tr>
+                        <tr>
+                            <td><h4>width</h4></td>
+                            <td>1920</td>
+                            <td>Width of the image. Use lower resolution to make it faster. Big images takes more bandwidth.</td>
+                        </tr>
+                        <tr>
+                            <td><h4>height</h4></td>
+                            <td>1080</td>
+                            <td>Width of the image. Use lower resolution to make it faster. Big images takes more bandwidth.</td>
+                        </tr>
+                        <tr>
+                            <td><h4>blur</h4></td>
+                            <td>false</td>
+                            <td>Add blur effect to image.</td>
+                        </tr>
+                        <tr>
+                            <td><h4>grayscale</h4></td>
+                            <td>false</td>
+                            <td>Add grayscale effect to image.</td>
+                        </tr>
+                        <tr>
+                            <td><h4>gravity</h4></td>
+                            <td>false</td>
+                            <td>Select the cropping gravity by adding keyword: <strong>north, east, south, west or center</strong> to the parameter.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <pre><code class="javascript">stimed.style.preset({
+  preset: 'unsplash',
+  target: '.about-bg',
+  property: 'background-image',
+  delay: 86400/10,
+  width: 1280,
+  height: 720,
+  gravity: 'north',
+  preload: true,
+  blur: true,
+  grayscale: true 
+});
+</code></pre>
+
+            </div>
+        </div> <!-- END: Objects Section -->
+
+        <!-- Contribute -->
+        <div class="ui vertical stripe segment contribute-bg shadow-top-bot" id="contribute">
+            <div class="ui text container">
+                <h3 class="ui header p-bottom40 about-text">Contribute</h3>                
+                <p class="about-text p-bottom40">If you think you can improve this plugin with your superb skills you are welcome to <strong><a href="https://github.com/creatide/stimed/fork" target="_blank" class="text yellow">fork</a></strong> the project and create <strong><a href="https://help.github.com/articles/about-pull-requests/" target="_blank" class="text yellow">pull request</a></strong>.</p>
+            </div>
+        </div>
+        
+        <!-- Cookie & Analytics warning -->
+        <div class="ui inline cookie nag unselectable">
+            <span class="title">
+                We use cookies and Google Analytics. <a href="#" class="disclaimer-button">Read more!</a>
+            </span>
+            <i class="close icon"></i>
+        </div>
+        
+        <!-- Disclaimer -->
+        <div class="ui modal">
+            <div class="header text-center text blue unselectable">
+                Disclaimers &amp; Privacy Policy
+            </div>
+            <div class="content unselectable">
+                <div class="ui text container p-top20 p-bottom20">
+                    <h1 class="ui header">Cookies &amp; Privacy Policy</h1>
+                    <p>To make this site work properly, we sometimes place small data files called cookies on your device. Cookies allow
+                        us to give you the best browsing experience possible and help us understand how you use our site.</p>
+                    <p>A cookie is a small text file that a website saves on your computer or mobile device when you visit the site.
+                        It enables the website to remember your actions and preferences (such as login, language, font size and other
+                        display preferences) over a period of time, so you don’t have to keep re-entering them whenever you come
+                        back to the site or browse from one page to another.</p>
+                    <h3 class="ui header">This Website Will Collect Information Like:</h3>
+                    <ul>
+                        <li>Cookies and Usage Data for Google Analytics.</li>
+                        <li>See what website you came from to get here.</li>
+                        <li>How long you stay here.</li>
+                        <li>What kind of computer and/or browser you're using.</li>
+                        <li>Allow you to share pages with social networks such as Twitter or Facebook.</li>
+                    </ul>
+                    <h3 class="ui header">This Website Will NOT:</h3>
+                    <ul>
+                        <li>Share any personal information with third parties.</li>
+                    </ul>
+                    <h2 class="ui header">How to Control Cookies</h2>
+                    <p>You can control and/or delete cookies as you wish – for details, see <a href="http://aboutcookies.org" target="_blank">aboutcookies.org</a>.
+                        You can delete all cookies that are already on your computer and you can set most browsers to prevent them
+                        from being placed. If you do this, however, you may have to manually adjust some preferences every time you
+                        visit a site and some services and functionalities may not work.</p>
+                </div>
+                <div class="ui section divider"></div>
+                <div class="ui text container p-top20 p-bottom20">
+                    <h2 class="ui header">Google Analytics - Privacy Policy</h2>
+                    <p><a href="https://www.google.com/analytics/" target="_blank">Google Analytics</a> is a web analysis service provided
+                        by <a href="http://google.com" target="_blank">Google</a>. Google utilizes the data collected to track and
+                        examine the use of this web page, to prepare reports on its activities and share them with other Google services.</p>
+                    <p>Google may use the data collected to contextualize and personalize the ads of its own advertising network. Read
+                        <a href="http://www.google.com/analytics/terms/us.html" target="_blank">Google Analytics Terms of Service</a>                to get more info about how Google Analytics use your personal data.</p>
+                    <h3 class="ui header">Want to Opt Out of Tracking</h3>
+                    <p>You can use a browser plugin to <a href="http://tools.google.com/dlpage/gaoptout?hl=en" target="_blank">opt out of all Google Analytics tracking software</a>                or <a href="http://www.google.com/privacy_ads.html" target="_blank">opt out of Google’s advertising tracking cookie.</a></p>
+                </div>
+                <div class="ui section divider"></div>
+                <div class="ui text container p-top20 p-bottom20">
+                    <h1 class="ui header">Webpage Disclaimer</h1>
+                    <p>The information contained in this website is for general information purposes only. The information is provided
+                        by us and while we endeavour to keep the information up to date and correct, we make no representations or
+                        warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability or
+                        availability with respect to the website or the information, products, services, or related graphics contained
+                        on the website for any purpose. Any reliance you place on such information is therefore strictly at your
+                        own risk.</p>
+                    <p>In no event will we be liable for any loss or damage including without limitation, indirect or consequential
+                        loss or damage, or any loss or damage whatsoever arising from loss of data or profits arising out of, or
+                        in connection with, the use of this website.</p>
+                    <p>Through this website you are able to link to other websites which are not under the control of us. We have no
+                        control over the nature, content and availability of those sites. The inclusion of any links does not necessarily
+                        imply a recommendation or endorse the views expressed within them.</p>
+                    <p>Every effort is made to keep the website up and running smoothly. However, we takes no any responsibility for,
+                        and will not be liable for, the website being temporarily unavailable due to technical issues beyond our
+                        control.</p>
+                    <p>All copyrights belong to their respective owners.</p>
+                </div>
+                <div class="ui section divider"></div>
+                <div class="ui text container p-top20 p-bottom20">
+                    <h1 class="ui header">Software Disclaimer</h1>
+                    <p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRAN- TIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+                </div>
+            </div>
+            <div class="actions">
+                <div class="ui positive right labeled icon button">
+                    Close
+                    <i class="close icon"></i>
+                </div>
+            </div>
+        </div>
+        <!-- END: Disclaimer -->
+
+    </main>
+
+    <!-- Footer -->
+    <div class="ui inverted vertical footer basic segment p-side-1em unselectable">
+        <div class="ui inverted middle aligned two column grid">
+            <div class="ui inverted left aligned eight wide column">
+                <p class="text darkgrey">Made with <i class="fitted red heart icon text-icon"></i> and <i class="fitted brown coffee icon text-icon"></i></p>
+            </div>
+            <div class="inverted right aligned eight wide column">
+                <div class="ui horizontal inverted small divided link list">
+                    <a class="item" href="https://twitter.com/sakariniittymaa" target="_blank">Author</a>
+                    <a href="#" class="item disclaimer-button">Privacy &#38; Disclaimer</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+</body>
+
+</html>
